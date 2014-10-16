@@ -1,5 +1,5 @@
 # user customized
-*.json
+yelp_academic_dataset*
 *.bson
 .idea
 
