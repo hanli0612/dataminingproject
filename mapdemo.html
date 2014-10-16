@@ -17,6 +17,7 @@
                 var self = this;
                 var bounds = new google.maps.LatLngBounds();
                 $.getJSON('lasvagas.json', function (result) {
+//               $.getJSON('http://junpfirst.appspot.com/img/lasvagas.json', function (result) {
                     $.each(result.business_food, function (i, business) {
                         var latlong = new google.maps.LatLng(business.lat, business.lng)
                         var window_content = business.name;

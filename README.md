@@ -9,3 +9,6 @@ dataminingproject
   
 * **citystatecounting.py:** 
   It counts how many businesses in each state, how many businesses in each city
+
+* **Lasvegas_business_map.py:**
+  It queries all businesses from Lasvegas, separate them to food and nofood businesses, and dumps a json file
