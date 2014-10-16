@@ -12,3 +12,6 @@ dataminingproject
 
 * **Lasvegas_business_map.py:**
   It queries all businesses from Lasvegas, separate them to food and nofood businesses, and dumps a json file
+  
+* **mapdemo.html:**
+  It reads json file dumped by Lasvegas_business_map.py and visualizes all businesses on google map
