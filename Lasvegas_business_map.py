@@ -23,7 +23,8 @@ if __name__ == "__main__":
     print "Total business", business_collection.find({"city": "Las Vegas"}).count()
 
     #find all businesses with the categories:"Buffets","Restaurants", "Food","Diners"
-    lasvegas_food = business_collection.find({"city": "Las Vegas","categories": {"$in": ["Buffets","Restaurants", "Food","Diners"]}})
+    #lasvegas_food = business_collection.find({"city": "Las Vegas","categories": {"$in": ["Buffets","Restaurants", "Food","Diners"]}})
+    lasvegas_food = business_collection.find({"city": {"$in":["Phoenix","Glendale","Scottsdale","Tempe","Mesa","Gilbert","Chandler"]},"categories": {"$in": ["Food Trucks","Street Vendors", "Food Stands", "Caterers"]}})
     business_food_list = []
     for business in lasvegas_food:
         # appending name, lng,lat to list
@@ -33,7 +34,7 @@ if __name__ == "__main__":
     print "food", len(business_food_list)
 
     #find all businesses without the categories:"Buffets","Restaurants", "Food","Diners"
-    lasvegas_nofood = business_collection.find({"city": "Las Vegas","categories": {"$nin": ["Buffets","Restaurants", "Food","Diners"]}})
+    lasvegas_nofood = business_collection.find({"city": {"$in":["Phoenix","Glendale","Scottsdale","Tempe","Mesa","Gilbert","Chandler"]},"categories": {"$nin": ["Buffets","Restaurants", "Food","Diners"]}})
     business_nofood_list = []
     for business in lasvegas_nofood:
         business_nofood_list.append({"name": business['name'], "lng": business["loc"][0], "lat":business["loc"][1]})
