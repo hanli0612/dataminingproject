@@ -1,6 +1,5 @@
 # user customized
 yelp_academic_dataset*
-*.bson
 .idea
 
 # History files

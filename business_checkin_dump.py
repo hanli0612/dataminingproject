@@ -27,6 +27,7 @@ if __name__ == "__main__":
     #get business collection
     business_collection = db['business']
 
+
     #create geo index for geo location query
     business_collection.create_index([("loc", GEO2D)])
 
