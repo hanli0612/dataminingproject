@@ -30,17 +30,17 @@ if __name__ == "__main__":
     for bus in unknown_business:
         id_list.append(bus['_id'])
 
-
-    with open('yelp_academic_dataset_review.json') as f:
-        for line in f:
-            #for each line, find the corresponding business in db, add another entry called "checkin_info"
-            one_review = json.loads(line)
-            if one_review['business_id'] in id_list:
-                key = one_review['review_id']
-                one_review['_id'] = key
-                del one_review['review_id']
-                review_collection.insert(one_review)
-            # print key
-
-    print review_collection.find().count()
+    #
+    # with open('yelp_academic_dataset_review.json') as f:
+    #     for line in f:
+    #         #for each line, find the corresponding business in db, add another entry called "checkin_info"
+    #         one_review = json.loads(line)
+    #         if one_review['business_id'] in id_list:
+    #             key = one_review['review_id']
+    #             one_review['_id'] = key
+    #             del one_review['review_id']
+    #             review_collection.insert(one_review)
+    #         # print key
+    #
+    # print review_collection.find().count()
 

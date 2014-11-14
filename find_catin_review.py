@@ -31,17 +31,17 @@ if __name__ == "__main__":
     review_collection.ensure_index([('text', 'text')])
 
 
-    review_match = review_collection.find( { "$text": { "$search": "food restaurant taste eat cafe cook breakfast" } } )
+    review_match = review_collection.find( { "$text": { "$search": "drink food restaurant taste eat cafe cook breakfast diner dinner lunch fastfood pub" } } )
 
     print review_match.count()
     for review in review_match:
         id = review['business_id']
         business = business_collection.find_one({"_id":id})
 
-        # print business['name']
+        #print business['name']
         # print id
         if len(business['categories']) == 0:
             update_collection_push(business_collection, {'_id': id}, {'categories': 'food'})
-        print business['categories']
+        # print business['categories']
 
 
