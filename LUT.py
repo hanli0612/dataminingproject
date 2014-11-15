@@ -94,6 +94,24 @@ if __name__ == "__main__":
 			if item['open']:
 				truck_num[item['Cluster']] += 1
 				truck_review[item['Cluster']] += item['review_count']
+                                #Checkin Info
+                                if "checkin_info" in item.keys():
+                                        for day in ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]:
+                                                for hour in range(0, 23):
+                                                	if day in item['checkin_info'].keys():
+                                                        	if str(hour) in item['checkin_info'][day].keys():
+                                                                	if 0<=hour or 4>hour:
+                                                                                truck_0am_checkin[item['Cluster']] += item['checkin_info'][day][str(hour)]
+                                                                        if 4<=hour or 8>hour:
+                                                                                truck_4am_checkin[item['Cluster']] += item['checkin_info'][day][str(hour)]
+                                                                        if 8<=hour or 12>hour:
+                                                                                truck_8am_checkin[item['Cluster']] += item['checkin_info'][day][str(hour)]
+                                                                        if 12<=hour or 16>hour:
+                                                                               	truck_12pm_checkin[item['Cluster']] += item['checkin_info'][day][str(hour)]
+                                                                        if 16<=hour or 20>hour:
+                                                                                truck_4pm_checkin[item['Cluster']] += item['checkin_info'][day][str(hour)]
+                                                                        if 20<=hour or 24>hour:
+                                                                                truck_8pm_checkin[item['Cluster']] += item['checkin_info'][day][str(hour)]
 	 	#Food Business	
 		elif "Buffets" in item['categories'] or "Restaurants" in item['categories'] or "Diners" in item['categories'] or "Cafe" in item['categories']:
 			if item['open']:
@@ -227,25 +245,21 @@ if __name__ == "__main__":
 				#Checkin Info
 				if "checkin_info" in item.keys():
                                         for day in ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]:
-                                                for hour in range(0, K):
+                                                for hour in range(0, 23):
                                                         if day in item['checkin_info'].keys():
-								try:
-                                                                	if str(hour) in item['checkin_info'][day].keys():
-										if 0<=hour or 4>hour:
-											food_0am_checkin[item['Cluster']] += item['checkin_info'][day][str(hour)]
-										elif 4<=hour or 8>hour:
-											food_4am_checkin[item['Cluster']] += item['checkin_info'][day][str(hour)]
-                                                                        	elif 8<=hour or 12>hour:
-                                                                                	food_8am_checkin[item['Cluster']] += item['checkin_info'][day][str(hour)]
-                                                                        	elif 12<=hour or 16>hour:
-                                                                                	food_12pm_checkin[item['Cluster']] += item['checkin_info'][day][str(hour)]
-                                                                        	elif 16<=hour or 20>hour:
-                                                                                	food_4pm_checkin[item['Cluster']] += item['checkin_info'][day][str(hour)]
-                                                                        	elif 20<=hour or 24>hour:
-                                                                                	food_8pm_checkin[item['Cluster']] += item['checkin_info'][day][str(hour)]
-								except AttributeError as f :
-									print item['_id']
-									print f
+                                                        	if str(hour) in item['checkin_info'][day].keys():
+									if 0<=hour or 4>hour:
+										food_0am_checkin[item['Cluster']] += item['checkin_info'][day][str(hour)]
+									if 4<=hour or 8>hour:
+										food_4am_checkin[item['Cluster']] += item['checkin_info'][day][str(hour)]
+                                                                        if 8<=hour or 12>hour:
+                                                                                food_8am_checkin[item['Cluster']] += item['checkin_info'][day][str(hour)]
+                                                                        if 12<=hour or 16>hour:
+                                                                                food_12pm_checkin[item['Cluster']] += item['checkin_info'][day][str(hour)]
+                                                                        if 16<=hour or 20>hour:
+                                                                                food_4pm_checkin[item['Cluster']] += item['checkin_info'][day][str(hour)]
+                                                                        if 20<=hour or 24>hour:
+                                                                                food_8pm_checkin[item['Cluster']] += item['checkin_info'][day][str(hour)]
 										
 									
 		else:						
@@ -275,25 +289,21 @@ if __name__ == "__main__":
                                 #Checkin Info
                                 if "checkin_info" in item.keys():
                                         for day in ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]:
-                                                for hour in range(0, K):
-                                                        if day in item['checkin_info'].keys():
-								try:
-                                                                	if str(hour) in item['checkin_info'][day].keys():
-                                                                        	if 0<=hour or 4>hour:
-                                                                                	nofood_0am_checkin[item['Cluster']] += item['checkin_info'][day][str(hour)]
-                                                                        	elif 4<=hour or 8>hour:
-                                                                                	nofood_4am_checkin[item['Cluster']] += item['checkin_info'][day][str(hour)]
-                                                                        	elif 8<=hour or 12>hour:
-                                                                                	nofood_8am_checkin[item['Cluster']] += item['checkin_info'][day][str(hour)]
-                                                                        	elif 12<=hour or 16>hour:
-                                                                                	nofood_12pm_checkin[item['Cluster']] += item['checkin_info'][day][str(hour)]
-                                                                        	elif 16<=hour or 20>hour:
-                                                                                	nofood_4pm_checkin[item['Cluster']] += item['checkin_info'][day][str(hour)]
-                                                                        	elif 20<=hour or 24>hour:
-                                                                                	nofood_8pm_checkin[item['Cluster']] += item['checkin_info'][day][str(hour)]
-								except AttributeError as f:
-									print item['_id']
-									print f
+                                                for hour in range(0, 23):
+                                                	if day in item['checkin_info'].keys():
+                                                        	if str(hour) in item['checkin_info'][day].keys():
+                                                                	if 0<=hour or 4>hour:
+                                                                                nofood_0am_checkin[item['Cluster']] += item['checkin_info'][day][str(hour)]
+                                                                        if 4<=hour or 8>hour:
+                                                                                nofood_4am_checkin[item['Cluster']] += item['checkin_info'][day][str(hour)]
+                                                                        if 8<=hour or 12>hour:
+                                                                                nofood_8am_checkin[item['Cluster']] += item['checkin_info'][day][str(hour)]
+                                                                        if 12<=hour or 16>hour:
+                                                                               	nofood_12pm_checkin[item['Cluster']] += item['checkin_info'][day][str(hour)]
+                                                                        if 16<=hour or 20>hour:
+                                                                                nofood_4pm_checkin[item['Cluster']] += item['checkin_info'][day][str(hour)]
+                                                                        if 20<=hour or 24>hour:
+                                                                                nofood_8pm_checkin[item['Cluster']] += item['checkin_info'][day][str(hour)]
 	
 	#Remove DB
 	#for i in range(0, 80):
