@@ -1,6 +1,6 @@
 __author__ = 'junpan'
 
-
+#extracting all attribute names from cluster collection...
 import os
 import numpy as np
 from pymongo import MongoClient, GEO2D, ASCENDING, DESCENDING
