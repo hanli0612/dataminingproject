@@ -12,7 +12,8 @@ if __name__ == "__main__":
     	#connect to yelpdb
     	db = client['yelpdb']
     	#get business collection
-    	business_collection = db['business']	
+    	business_collection = db['business']
+	cluster_collection = db['cluster']	
 
     	#make sure city and state fields are indexed
     	business_collection.ensure_index([("city", ASCENDING)])
@@ -40,13 +41,18 @@ if __name__ == "__main__":
 	#plt.plot(K,D)
 	#plt.show()	
 
-	est = KMeans(n_clusters = 80)
+	K = 80
+	est = KMeans(n_clusters = K)
 	est.fit(X)
 	labels = est.labels_
+	centroids = est.cluster_centers_
 
 	#Update DB
 	for i in range(len(labels)):
 		business_collection.update({'_id': Y[i]}, {'$set': {'Cluster': int(labels[i])}}, upsert = True)
+
+	for i in range(0, K):
+		cluster_collection.update({'_id': i}, {'$set': {'Centroid: Longitude': centroids[i][0], 'Centroid: Latitude': centroids[i][1]}})
 
 	X = np.array(X)
 	plt.scatter(X[:,0], X[:,1], c = labels.astype(np.float))
