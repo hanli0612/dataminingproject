@@ -90,7 +90,7 @@ if __name__ == "__main__":
 
 
 	for item in total_business:
-		if "Food Trucks" in item['categories'] or 'Street Vendors' in item['categories'] or 'Food Stands' in item['categories'] or 'Caterers' in item['categories']:
+		if "Food Trucks" in item['categories'] or 'Delis' in item['categories'] or 'Street Vendors' in item['categories'] or 'Food Stands' in item['categories'] or 'Caterers' in item['categories']:
 			if item['open']:
 				truck_num[item['Cluster']] += 1
 				truck_review[item['Cluster']] += item['review_count']
@@ -315,6 +315,7 @@ if __name__ == "__main__":
 	#	one_cluster['_id'] = i
 	#	cluster_collection.insert(one_cluster)
 
+	print truck_num
 	#Write Values
 	for i in range(0, K):
 		cluster_collection.update({"_id": i}, {"$set": {"Food Truck Num": truck_num[i], "Food Review": food_review[i], "No Food Review": nofood_review[i], "Food Truck Review": truck_review[i], "Food Truck Checkin": truck_checkin[i], "Food: 1 Star": food_1star[i], "Food: 2 Star": food_2star[i], "Food: 3 Star": food_3star[i], "Food: 4 Star": food_4star[i], "Food: 5 Star": food_5star[i], "No Food: 1 Star": nofood_1star[i], "No Food: 2 Star": nofood_2star[i], "No Food: 3 Star": nofood_3star[i], "No Food: 4 Star": nofood_4star[i], "No Food: 5 Star": nofood_5star[i]}})

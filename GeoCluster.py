@@ -3,6 +3,8 @@ import os
 import numpy as np
 from sklearn.cluster import KMeans
 import matplotlib.pyplot as plt
+from sklearn.decomposition import PCA
+from sklearn.preprocessing import scale
 
 from pymongo import MongoClient, GEO2D, ASCENDING, DESCENDING
 
@@ -55,15 +57,28 @@ if __name__ == "__main__":
 		cluster_collection.update({'_id': i}, {'$set': {'Centroid: Longitude': centroids[i][0], 'Centroid: Latitude': centroids[i][1]}})
 
 	X = np.array(X)
-	plt.scatter(X[:,0], X[:,1], c = labels.astype(np.float))
-	plt.show()
-
-	#h = .0002
-	#x_min, x_max = X[:, 0].min(), X[:, 0].max()
-	#y_min, y_max = X[:, 1].min(), X[:, 1].max()
-	#xx, yy = np.meshgrid(np.arange(x_min, x_max, h), np.arange(y_min, y_max, h), sparse = True)
-	#Z = est.predict(np.c_[xx.ravel(), yy.ravel()])
-	#Z = Z.reshape(xx.shape)
-
-	#plt.imshow(Z, interpolation = 'nearest', extent=(xx.min(), xx.max(), yy.min(), yy.max()), cmap=plt.cm.Paired, aspect='auto', origin='lower')
+	#plt.scatter(X[:,0], X[:,1], c = labels.astype(np.float))
 	#plt.show()
+	
+	# Plot the decision boundary. For that, we will assign a color to each
+	x_min, x_max = X[:, 0].min(), X[:, 0].max()
+	y_min, y_max = X[:, 1].min(), X[:, 1].max()
+	h1 = (x_max - x_min)/2000
+	h2 = (y_max - y_min)/2000
+	xx, yy = np.meshgrid(np.arange(x_min, x_max, h1), np.arange(y_min, y_max, h2))
+	Z = est.predict(np.c_[xx.ravel(), yy.ravel()])
+	Z = Z.reshape(xx.shape)
+	plt.figure(1)
+	plt.clf()
+	plt.imshow(Z, interpolation='nearest', extent=(xx.min(), xx.max(), yy.min(), yy.max()), cmap=plt.cm.Paired, aspect='auto', origin='lower')
+	plt.plot(X[:, 0], X[:, 1], 'ko', markersize=3)	
+	centroids = est.cluster_centers_
+	plt.scatter(centroids[:, 0], centroids[:, 1], marker='x', s=100, linewidths=2, color='w', zorder=10)
+	plt.xlabel('Longitude')
+	plt.ylabel('Latitude')
+	plt.title('K-means clustering on All Business in Phoenix Area\n''Centroids are marked with white cross')
+	plt.xlim(x_min, x_max)
+	plt.ylim(y_min, y_max)
+	plt.xticks(())
+	plt.yticks(())
+	plt.show()
