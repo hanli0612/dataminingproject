@@ -27,7 +27,7 @@ Food Truck Review
 Food: 1 Price
 Food: 2 Price
 Food: 3 Price
-Food: 4 Price
+Food: 4 Price 
 Food: 1 Star
 Food: 2 Star
 Food: 3 Star
