@@ -48,8 +48,8 @@ if __name__ == "__main__":
 	centroids = est.cluster_centers_
 
 	#Update DB
-	for i in range(len(labels)):
-		business_collection.update({'_id': Y[i]}, {'$set': {'Cluster': int(labels[i])}}, upsert = True)
+	# for i in range(len(labels)):
+	# 	business_collection.update({'_id': Y[i]}, {'$set': {'Cluster': int(labels[i])}}, upsert = True)
 
 	for i in range(0, K):
 		cluster_collection.update({'_id': i}, {'$set': {'Centroid: Longitude': centroids[i][0], 'Centroid: Latitude': centroids[i][1]}})
