@@ -90,7 +90,7 @@ if __name__ == "__main__":
     num_validated_parking = [0 for i in range(0, K)]
 
     for item in total_business:
-        if "Food Trucks" in item['categories'] or 'Street Vendors' in item['categories'] or 'Food Stands' in item[
+        if "Food Trucks" in item['categories'] or "Delis" in item['categories'] or 'Street Vendors' in item['categories'] or 'Food Stands' in item[
             'categories'] or 'Caterers' in item['categories']:
             if item['open']:
                 truck_num[item['Cluster']] += 1
