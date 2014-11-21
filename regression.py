@@ -33,7 +33,7 @@ if __name__ == "__main__":
     food_truck_num = data_raw[:,0]
     # print food_truck_num
     # food_truck_checkin_0am = data_raw[:,6]
-    data_0am = np.delete(data_raw,period[3], 1)
+    data_0am = np.delete(data_raw,period[2], 1)
     print data_0am.shape
     data_0am_train = data_0am[food_truck_num!=0,:]
     print data_0am_train.shape
