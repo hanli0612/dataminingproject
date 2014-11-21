@@ -102,7 +102,7 @@ if __name__ == "__main__":
             if item['open']and ("ClusterNearBy" in item.keys()):
                 map(lambda x: addone(truck_num,x), item['ClusterNearBy'])
                 # truck_num[item['Cluster']] += 1
-                map(lambda x: addmore(truck_num,x,item['review_count']), item['ClusterNearBy'])
+                map(lambda x: addmore(truck_review,x,item['review_count']), item['ClusterNearBy'])
                 # truck_review[item['Cluster']] += item['review_count']
                 #Checkin Info
                 if "checkin_info" in item.keys():
