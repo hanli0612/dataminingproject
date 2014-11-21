@@ -391,31 +391,31 @@ if __name__ == "__main__":
 
     #Write Values
     for i in range(0, K):
-        cluster_collection.update({"_id": i+80}, {
+        cluster_collection.update({"_id": i+480}, {
             "$set": {"Food Truck Num": truck_num[i], "Food Review": food_review[i], "No Food Review": nofood_review[i],
                      "Food Truck Review": truck_review[i], "Food Truck Checkin": truck_checkin[i],
                      "Food: 1 Star": food_1star[i], "Food: 2 Star": food_2star[i], "Food: 3 Star": food_3star[i],
                      "Food: 4 Star": food_4star[i], "Food: 5 Star": food_5star[i], "No Food: 1 Star": nofood_1star[i],
                      "No Food: 2 Star": nofood_2star[i], "No Food: 3 Star": nofood_3star[i],
                      "No Food: 4 Star": nofood_4star[i], "No Food: 5 Star": nofood_5star[i]}})
-        cluster_collection.update({"_id": i+80}, {
+        cluster_collection.update({"_id": i+480}, {
             "$set": {"0am Food Checkin": food_0am_checkin[i], "4am Food Checkin": food_4am_checkin[i],
                      "8am Food Checkin": food_8am_checkin[i], "12pm Food Checkin": food_12pm_checkin[i],
                      "4pm Food Checkin": food_4pm_checkin[i], "8pm Food Checkin": food_8pm_checkin[i]}})
-        cluster_collection.update({"_id": i+80}, {
+        cluster_collection.update({"_id": i+480}, {
             "$set": {"0am No Food Checkin": nofood_0am_checkin[i], "4am No Food Checkin": nofood_4am_checkin[i],
                      "8am No Food Checkin": nofood_8am_checkin[i], "12pm No Food Checkin": nofood_12pm_checkin[i],
                      "4pm No Food Checkin": nofood_4pm_checkin[i], "8pm No Food Checkin": nofood_8pm_checkin[i]}})
-        cluster_collection.update({"_id": i+80}, {
+        cluster_collection.update({"_id": i+480}, {
             "$set": {"0am Food Truck Checkin": truck_0am_checkin[i], "4am Food Truck Checkin": truck_4am_checkin[i],
                      "8am Food Truck Checkin": truck_8am_checkin[i], "12pm Food Truck Checkin": truck_12pm_checkin[i],
                      "4pm Food Truck Checkin": truck_4pm_checkin[i], "8pm Food Truck Checkin": truck_8pm_checkin[i]}})
-        cluster_collection.update({"_id": i+80}, {
+        cluster_collection.update({"_id": i+480}, {
             "$set": {"Food: 1 Price": food_1price[i], "Food: 2 Price": food_2price[i], "Food: 3 Price": food_3price[i],
                      "Food: 4 Price ": food_4price[i], "No Food: 1 Price": nofood_1price[i],
                      "No Food: 2 Price": nofood_2price[i], "No Food: 3 Price": nofood_3price[i],
                      "No Food: 4 Price": nofood_4price[i]}})
-        cluster_collection.update({"_id": i+80}, {
+        cluster_collection.update({"_id": i+480}, {
             "$set": {"Credit Card": num_accept_credit_card[i], "Cater": num_caters[i], "Delivery": num_delivery[i],
                      "Drive-thru": num_drive_through[i], "Noise: Quiet": quiet_noise_level[i],
                      "Noise: Average": average_noise_level[i], "Noise: Loud": loud_noise_level[i],

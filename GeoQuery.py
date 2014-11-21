@@ -23,7 +23,7 @@ if __name__ == "__main__":
 
     print food_Trucks.count()
 
-    # business_collection.update({}, {"$unset": {"ClusterBearBy":""}},upsert=True,multi=True)
+   # business_collection.update({}, {"$unset": {"ClusterNearBy":""}},upsert=True,multi=True)
     count = 0
     for food_Truck in food_Trucks:
         loc = food_Truck['loc'];
