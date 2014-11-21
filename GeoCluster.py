@@ -43,18 +43,26 @@ if __name__ == "__main__":
 	#plt.plot(K,D)
 	#plt.show()	
 
-	K = 80
-	est = KMeans(n_clusters = K)
+	K = 100
+	est = KMeans(n_clusters = K, init='random', random_state = 10)
 	est.fit(X)
 	labels = est.labels_
 	centroids = est.cluster_centers_
 
+	print labels 
+	
+    	#Insert into DB
+    	for i in range(0, K):
+        	one_cluster = {}
+        	one_cluster['_id'] = i + 380
+        	cluster_collection.insert(one_cluster)
+
 	#Update DB
-	# for i in range(len(labels)):
-	# 	business_collection.update({'_id': Y[i]}, {'$set': {'Cluster': int(labels[i])}}, upsert = True)
+	for i in range(len(labels)):
+		business_collection.update({'_id': Y[i]}, {'$set': {'Cluster': int(labels[i])}}, upsert = True)
 
 	for i in range(0, K):
-		cluster_collection.update({'_id': i}, {'$set': {'Centroid: Longitude': centroids[i][0], 'Centroid: Latitude': centroids[i][1]}})
+		cluster_collection.update({'_id': i+380}, {'$set': {'Centroid: Longitude': centroids[i][0], 'Centroid: Latitude': centroids[i][1]}})
 
 	X = np.array(X)
 	#plt.scatter(X[:,0], X[:,1], c = labels.astype(np.float))
