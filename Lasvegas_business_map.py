@@ -24,7 +24,8 @@ if __name__ == "__main__":
 
     #find all businesses with the categories:"Buffets","Restaurants", "Food","Diners"
     #lasvegas_food = business_collection.find({"city": "Las Vegas","categories": {"$in": ["Buffets","Restaurants", "Food","Diners"]}})
-    lasvegas_food = business_collection.find({"city": {"$in":["Phoenix","Glendale","Scottsdale","Tempe","Mesa","Gilbert","Chandler"]},"categories": {"$in": ["Food Trucks","Street Vendors", "Food Stands", "Caterers"]}})
+    # lasvegas_food = business_collection.find({"city": {"$in":["Phoenix","Glendale","Scottsdale","Tempe","Mesa","Gilbert","Chandler"]},"categories": {"$in": ["Food Trucks","Street Vendors", "Food Stands", "Caterers"]}})
+    lasvegas_food = business_collection.find({"city": {"$in":["Phoenix","Glendale","Scottsdale","Tempe","Mesa","Gilbert","Chandler"]},"categories": {"$in": ["Buffets","Restaurants", "Food","Diners"]}})
     business_food_list = []
     for business in lasvegas_food:
         # appending name, lng,lat to list
