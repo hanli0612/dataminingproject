@@ -1,0 +1,59 @@
+Food Truck Num
+Food Truck Review
+0am Food Truck Checkin
+4am Food Truck Checkin
+8am Food Truck Checkin
+12pm Food Truck Checkin
+4pm Food Truck Checkin
+8pm Food Truck Checkin
+0am Food Checkin
+4am Food Checkin
+8am Food Checkin
+12pm Food Checkin
+4pm Food Checkin
+8pm Food Checkin
+0am No Food Checkin
+4am No Food Checkin
+8am No Food Checkin
+12pm No Food Checkin
+4pm No Food Checkin
+8pm No Food Checkin
+Cater
+Credit Card
+Delivery
+Drive-thru
+Food Review
+Food: 1 Price
+Food: 2 Price
+Food: 3 Price
+Food: 4 Price 
+Food: 1 Star
+Food: 2 Star
+Food: 3 Star
+Food: 4 Star
+Food: 5 Star
+Good for Groups
+Good for Kids
+No Food Review
+No Food: 1 Price
+No Food: 2 Price
+No Food: 3 Price
+No Food: 4 Price
+No Food: 1 Star
+No Food: 2 Star
+No Food: 3 Star
+No Food: 4 Star
+No Food: 5 Star
+Noise: Average
+Noise: Loud
+Noise: Quiet
+Outdoor Seating
+Parking: Garage
+Parking: Lot
+Parking: Street
+Parking: Valet
+Parking: Validated
+Takeout
+Waiter Service
+Wi-Fi
+_id

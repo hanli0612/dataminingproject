@@ -33,21 +33,21 @@
                             $('#map_canvas').gmap('closeInfoWindow');
                         });
                     });
-                     $.each(result.business_nofood, function (i, business) {
-                        var latlong = new google.maps.LatLng(business.lat, business.lng)
-                        var window_content = business.name;
-                        $('#map_canvas').gmap('addMarker', {
-                            'position': latlong,
-                            'icon':"https://storage.googleapis.com/support-kms-prod/SNP_2752068_en_v0"
-                        }, function (map, marker) {
-                            bounds.extend(latlong)
-                        }).mouseover(function () {
-                            $('#map_canvas').gmap('openInfoWindow', { content: window_content }, this);
-
-                        }).mouseout(function () {
-                            $('#map_canvas').gmap('closeInfoWindow');
-                        });
-                    });
+//                     $.each(result.business_nofood, function (i, business) {
+//                        var latlong = new google.maps.LatLng(business.lat, business.lng)
+//                        var window_content = business.name;
+//                        $('#map_canvas').gmap('addMarker', {
+//                            'position': latlong,
+//                            'icon':"https://storage.googleapis.com/support-kms-prod/SNP_2752068_en_v0"
+//                        }, function (map, marker) {
+//                            bounds.extend(latlong)
+//                        }).mouseover(function () {
+//                            $('#map_canvas').gmap('openInfoWindow', { content: window_content }, this);
+//
+//                        }).mouseout(function () {
+//                            $('#map_canvas').gmap('closeInfoWindow');
+//                        });
+//                    });
                     map.fitBounds(bounds)
 //                    $('#map_canvas').gmap('set', 'MarkerClusterer', new MarkerClusterer(map, $(self).gmap('get', 'markers')));
                 });
