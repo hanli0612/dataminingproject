@@ -13,7 +13,7 @@ from Util import distance_kilos
 import json
 import math
 
-PERIOD = 0
+PERIOD = 5
 def getdemodata():
     period = {}
     for i in range(0,6):
@@ -101,7 +101,7 @@ if __name__ == "__main__":
     # print "train error ratio: " , np.absolute(data_0am_train_predy-data_0am_train_yy)
     # print "test error ratio: ", np.mean(np.divide(np.absolute(data_0am_test_predy-data_0am_test_y),data_0am_train_yy+0.00001))
 
-    las = Lasso(max_iter=10000)
+    las = Lasso(max_iter=50000, alpha=0.01)
     las.fit(data_0am_train_xx,data_0am_train_yy)
     data_0am_train_predy = las.predict(data_0am_train_xx)
     lasso_train_predy = las.predict(data_0am_train_xx)
@@ -127,7 +127,7 @@ if __name__ == "__main__":
     print "train error: " , np.sqrt(np.mean((data_0am_train_predy-data_0am_train_yy)**2))/nom_train
     # print "test error: ",  np.sqrt(np.mean((data_0am_test_predy-data_0am_test_y)**2))/nom_test
 
-    dtr = DecisionTreeRegressor(max_depth=4)
+    dtr = DecisionTreeRegressor(max_depth=5)
     dtr.fit(data_0am_train_xx,data_0am_train_yy)
     data_0am_train_predy = dtr.predict(data_0am_train_xx)
     DTR_train_predy = dtr.predict(data_0am_train_xx)
@@ -142,7 +142,7 @@ if __name__ == "__main__":
 
 
     rng = np.random.RandomState(1)
-    abr = AdaBoostRegressor(DecisionTreeRegressor(max_depth=4),
+    abr = AdaBoostRegressor(DecisionTreeRegressor(max_depth=5),
                           n_estimators=300, random_state=rng)
     abr.fit(data_0am_train_xx,data_0am_train_yy)
     data_0am_train_predy = abr.predict(data_0am_train_xx)
@@ -185,7 +185,7 @@ if __name__ == "__main__":
     # print combine_test_predy
     # print combine_test_predy.shape
     combine_test_predy -= np.amin(combine_test_predy)
-    combine_test_predy = combine_test_predy/(np.amax(combine_test_predy) - np.amin(combine_test_predy))
+    combine_test_predy = combine_test_predy/np.amax(combine_test_predy)
     # print combine_test_predy
 
     clusters = range(0,80)
